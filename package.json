@@ -1,9 +1,9 @@
 {
   "name": "@dannyxcii/stylus",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "A rich text editing suite.",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/stylus.js",
+  "module": "dist/stylus.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --mode=production"
   },
