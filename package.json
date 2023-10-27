@@ -1,0 +1,30 @@
+{
+  "name": "@dannyxcii/stylus",
+  "version": "0.0.1",
+  "description": "A rich text editing suite.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielWinning/stylus.git"
+  },
+  "keywords": [
+    "rich-text-editor",
+    "rte"
+  ],
+  "author": "Daniel Winning",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/DanielWinning/stylus/issues"
+  },
+  "homepage": "https://github.com/DanielWinning/stylus#readme",
+  "devDependencies": {
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
