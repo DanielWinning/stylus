@@ -40,7 +40,7 @@ class Editor
  *
  * @returns {Array<Editor>}
  */
-function buildAllRichTextEditors(selector: string = '.rte'): Array<Editor>
+function buildAllRichTextEditors(selector: string): Array<Editor>
 {
     let editors: Array<Editor> = [];
 

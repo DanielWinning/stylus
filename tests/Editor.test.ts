@@ -7,7 +7,7 @@ const DOM: Array<any> = [
     HTMLInputElement,
 ];
 
-describe('Editor Class', () => {
+describe('Class: Editor', () => {
     it('should create an instance of Editor', () => {
         let input: HTMLInputElement = document.createElement('input');
         input.classList.add('rte-1');
@@ -25,7 +25,7 @@ describe('Editor Class', () => {
         const editor = new Editor({targetElement: input});
         expect(editor).toBeInstanceOf(Editor);
     });
-    it('throws an error when targetElement is not found by string reference', () => {
+    it('throws an error when targetElement is not found by selector', () => {
         expect(() => {
             new Editor({targetElement: '.rte'});
         }).toThrowError('Editor could not be instantiated, no corresponding DOM Element found.');
@@ -42,9 +42,9 @@ describe('Editor Class', () => {
     });
 });
 
-describe('buildAllRichTextEditors Helper', () => {
+describe('Helper: buildAllRichTextEditors', () => {
    it('should build no editors when selector does not exist on page', () => {
-      expect(buildAllRichTextEditors()).toStrictEqual([]);
+      expect(buildAllRichTextEditors('.test')).toStrictEqual([]);
    });
    it('should build editors when selector exists', () => {
       let input = document.createElement('input');

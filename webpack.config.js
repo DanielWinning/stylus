@@ -8,7 +8,11 @@ module.exports = {
                 test: /\.ts?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
-            }
+            },
+            {
+                test: /\.(scss|sass)$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
         ]
     },
     resolve: {
