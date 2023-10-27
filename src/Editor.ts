@@ -29,7 +29,7 @@ class Editor
     {
         this.element = targetElement instanceof HTMLInputElement
             ? targetElement
-            : (document.querySelector(targetElement) ?? null);
+            : document.querySelector(targetElement) ?? null;
     }
 }
 

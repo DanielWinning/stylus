@@ -15,7 +15,7 @@ module.exports = {
         extensions: ['.ts', '.js']
     },
     output: {
-        filename: 'index.js',
+        filename: 'stylus.js',
         libraryTarget: 'commonjs2',
         path: path.resolve(__dirname, 'dist')
     }
