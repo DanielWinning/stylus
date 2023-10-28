@@ -8,4 +8,8 @@ export interface EditorOptions {
     targetElement: string | HTMLInputElement;
 }
 
+export declare class Toolbar {
+    constructor();
+}
+
 export { StyleOptions };

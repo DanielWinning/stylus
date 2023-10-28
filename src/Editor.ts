@@ -1,10 +1,12 @@
 import IEditorOptions from './Interface/IEditorOptions';
-import {StyleOptions} from "./Enum/StyleOptions";
+import { StyleOptions } from './Enum/StyleOptions';
+import { Toolbar } from './Toolbar';
 
 class Editor
 {
     inputElement: HTMLInputElement;
     colourScheme: string;
+    toolbar: Toolbar;
 
     /**
      * @param {IEditorOptions} options
@@ -59,14 +61,13 @@ class Editor
         let stylusContainer = document.createElement('div');
         stylusContainer.classList.add('stylus', this.colourScheme);
 
-        let toolbar = document.createElement('div');
-        toolbar.classList.add('stylus-toolbar');
+        this.toolbar = new Toolbar();
 
         let editor = document.createElement('div');
         editor.classList.add('stylus-editor');
         editor.setAttribute('contenteditable', '');
 
-        stylusContainer.append(toolbar);
+        stylusContainer.append(this.toolbar.getElement());
         stylusContainer.append(editor);
 
         this.inputElement.parentNode.insertBefore(stylusContainer, this.inputElement.nextSibling);

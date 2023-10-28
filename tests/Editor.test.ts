@@ -3,10 +3,6 @@
  */
 import { Editor, buildAllRichTextEditors } from '../src/Editor';
 
-const DOM: Array<any> = [
-    HTMLInputElement,
-];
-
 afterEach(() => {
     document.body.innerHTML = '';
 });

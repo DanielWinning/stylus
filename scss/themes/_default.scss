@@ -1,0 +1,19 @@
+@mixin stylusDefault {
+  border: 1px solid #ebebeb;
+  border-radius: .25rem;
+
+  .stylus-toolbar {
+    background-color: #e3e3e3;
+    min-height: 20px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .stylus-editor {
+    padding: .75rem;
+    color: #4d4d4d;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

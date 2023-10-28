@@ -1,12 +1,4 @@
-@mixin stylusDefault {
-  .stylus-toolbar {
-
-  }
-  .stylus-editor {
-    padding: .75rem;
-    background-color: #ededed;
-  }
-}
+@import 'themes/default';
 
 .stylus {
   width: 100%;
