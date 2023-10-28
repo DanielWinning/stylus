@@ -5,7 +5,8 @@
   "main": "dist/stylus.js",
   "module": "dist/stylus.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js --mode=production"
+    "build": "webpack --config webpack.config.js --mode=production",
+    "watch": "webpack --config webpack.config.js --mode=development --watch"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/DanielWinning/stylus#readme",
   "devDependencies": {
     "@types/jest": "^29.5.6",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",

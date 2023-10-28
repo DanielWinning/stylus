@@ -18,13 +18,16 @@ describe('Class: Editor', () => {
         });
         expect(editor).toBeInstanceOf(Editor);
     });
+
     it('should create an instance of Editor on passed Element', () => {
         let input = document.createElement('input');
         input.type = 'text';
+        document.body.append(input);
 
         const editor = new Editor({targetElement: input});
         expect(editor).toBeInstanceOf(Editor);
     });
+
     it('throws an error when targetElement is not found by selector', () => {
         expect(() => {
             new Editor({targetElement: '.rte'});

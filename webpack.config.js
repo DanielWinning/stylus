@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/index.ts',
@@ -22,5 +23,8 @@ module.exports = {
         filename: 'stylus.js',
         libraryTarget: 'commonjs2',
         path: path.resolve(__dirname, 'dist')
-    }
+    },
+    plugins: [
+        new CopyWebpackPlugin({patterns: [{from: 'src/index.d.ts', to: 'stylus.d.ts'}]}),
+    ],
 }
