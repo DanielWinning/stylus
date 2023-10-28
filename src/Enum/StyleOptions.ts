@@ -1,4 +1,4 @@
 export enum StyleOptions {
-    DEFAULT = 'default',
+    DEFAULT = 'stylus-default',
     NONE = 'stylus-no-styles'
 }

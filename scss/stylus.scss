@@ -3,7 +3,7 @@
 .stylus {
   width: 100%;
 
-  &.default {
+  &.stylus-default {
     @include stylusDefault;
   }
 }

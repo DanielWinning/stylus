@@ -59,7 +59,7 @@ describe('Class: Editor', () => {
         new Editor({targetElement: el});
 
         expect(document.querySelector('#test')).toBeTruthy();
-        expect(document.querySelector('.stylus').classList.contains('default')).toBeTruthy();
+        expect(document.querySelector('.stylus').classList.contains(StyleOptions.DEFAULT)).toBeTruthy();
 
         clearDOM();
         el = createTestInputElement();
@@ -100,6 +100,7 @@ describe('Helper: buildAllRichTextEditors', () => {
 function createTestInputElement(): HTMLInputElement
 {
     let el = document.createElement('input');
+
     el.type = 'text';
     el.id = 'test';
     el.classList.add('rte');
