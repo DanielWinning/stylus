@@ -1,8 +1,10 @@
 import IEditorOptions from './Interface/IEditorOptions';
+import {StyleOptions} from "./Enum/StyleOptions";
 
 class Editor
 {
     inputElement: HTMLInputElement;
+    colourScheme: string;
 
     /**
      * @param {IEditorOptions} options
@@ -10,6 +12,7 @@ class Editor
     public constructor(options: IEditorOptions)
     {
         this.setDOMElement(options.targetElement);
+        this.setEditorStyles(options.colourScheme ?? StyleOptions.DEFAULT);
 
         if (!this.inputElement) {
             throw new Error('Editor could not be instantiated, no corresponding DOM Element found.');
@@ -35,6 +38,18 @@ class Editor
     }
 
     /**
+     * @param {string} styleOption
+     *
+     * @private
+     */
+    private setEditorStyles(styleOption: string): void
+    {
+        this.colourScheme = styleOption in StyleOptions
+            ? styleOption
+            : StyleOptions.DEFAULT;
+    }
+
+    /**
      * @private
      */
     private buildEditorUI(): void
@@ -42,7 +57,17 @@ class Editor
         this.inputElement.style.display = 'none';
 
         let stylusContainer = document.createElement('div');
-        stylusContainer.classList.add('stylus');
+        stylusContainer.classList.add('stylus', this.colourScheme);
+
+        let toolbar = document.createElement('div');
+        toolbar.classList.add('stylus-toolbar');
+
+        let editor = document.createElement('div');
+        editor.classList.add('stylus-editor');
+        editor.setAttribute('contenteditable', '');
+
+        stylusContainer.append(toolbar);
+        stylusContainer.append(editor);
 
         this.inputElement.parentNode.insertBefore(stylusContainer, this.inputElement.nextSibling);
     }

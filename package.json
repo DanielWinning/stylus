@@ -6,7 +6,9 @@
   "module": "dist/stylus.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --mode=production",
-    "watch": "webpack --config webpack.config.js --mode=development --watch"
+    "watch": "webpack --config webpack.config.js --mode=development --watch",
+    "test": "jest --verbose",
+    "test-diff": "jest -o --verbose"
   },
   "repository": {
     "type": "git",
