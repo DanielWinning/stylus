@@ -2,8 +2,8 @@ import { IToolbarButtonOptions } from './Interface/IToolbarButtonOptions';
 
 class Toolbar
 {
-    element: HTMLDivElement;
-    buttons: Array<ToolbarButton>;
+    private readonly element: HTMLDivElement;
+    private buttons: Array<ToolbarButton>;
 
     constructor()
     {
@@ -21,6 +21,11 @@ class Toolbar
         return this.element;
     }
 
+    /**
+     * Set up method for creating interactive toolbar buttons.
+     *
+     * @private
+     */
     private createButtons(): void
     {
         let buttons: Array<ToolbarButton> = [];
@@ -43,7 +48,7 @@ class Toolbar
 
 class ToolbarButton
 {
-    name: string;
+    private name: string;
 
     constructor(options: IToolbarButtonOptions) {
         this.name = options.name;

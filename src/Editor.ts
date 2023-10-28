@@ -1,6 +1,7 @@
 import IEditorOptions from './Interface/IEditorOptions';
 import { StyleOptions } from './Enum/StyleOptions';
 import { Toolbar } from './Toolbar';
+import StyleUtils from "./Utils/StyleUtils";
 
 class Editor
 {
@@ -63,7 +64,7 @@ class Editor
      */
     private setEditorStyles(styleOption: string): void
     {
-        this.colourScheme = styleOption in StyleOptions
+        this.colourScheme = StyleUtils.isValidStyleOption(styleOption)
             ? styleOption
             : StyleOptions.DEFAULT;
     }

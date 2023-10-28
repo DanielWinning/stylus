@@ -2,16 +2,15 @@
  * @jest-environment jsdom
  */
 import { Editor, buildAllRichTextEditors } from '../src/Editor';
+import { StyleOptions } from '../src/Enum/StyleOptions';
 
 afterEach(() => {
     document.body.innerHTML = '';
 });
 
 describe('Class: Editor', () => {
-    it('should create an instance of Editor', () => {
-        let input: HTMLInputElement = document.createElement('input');
-        input.classList.add('rte');
-        document.body.append(input);
+    it('should create an instance of Editor when targetElement is a valid CSS selector', () => {
+        createTestInputElement();
 
         const editor = new Editor({
             targetElement: '.rte'
@@ -20,9 +19,7 @@ describe('Class: Editor', () => {
     });
 
     it('should create an instance of Editor on passed Element', () => {
-        let input = document.createElement('input');
-        input.type = 'text';
-        document.body.append(input);
+        let input = createTestInputElement();
 
         const editor = new Editor({targetElement: input});
         expect(editor).toBeInstanceOf(Editor);
@@ -45,11 +42,8 @@ describe('Class: Editor', () => {
     });
 
     it('updates input when contents changed', () => {
-        let el = document.createElement('input');
-        el.type = 'text';
-        document.body.append(el);
-
-        let editor = new Editor({targetElement: el});
+        let el = createTestInputElement(),
+            editor = new Editor({targetElement: el});
 
         expect(editor.getInputValue()).toBe('');
 
@@ -58,6 +52,35 @@ describe('Class: Editor', () => {
 
         expect(editor.getInputValue()).toBe('Test string');
     });
+
+    it('applies the default style if an invalid or no style option is provided', () => {
+        let el = createTestInputElement();
+
+        new Editor({targetElement: el});
+
+        expect(document.querySelector('#test')).toBeTruthy();
+        expect(document.querySelector('.stylus').classList.contains('default')).toBeTruthy();
+
+        clearDOM();
+        el = createTestInputElement();
+
+        new Editor({targetElement: el, colourScheme: 'invalid-scheme'});
+
+        expect(document.querySelector('#test')).toBeTruthy();
+        expect(
+            document.querySelector('.stylus').classList.contains(StyleOptions.DEFAULT)
+        ).toBeTruthy();
+    });
+
+    it('applies the style based on valid provided style option', () => {
+        let el = createTestInputElement();
+
+        new Editor({targetElement: el, colourScheme: StyleOptions.NONE});
+
+        expect(
+            document.querySelector('.stylus').classList.contains(StyleOptions.NONE)
+        ).toBeTruthy();
+    });
 });
 
 describe('Helper: buildAllRichTextEditors', () => {
@@ -65,11 +88,30 @@ describe('Helper: buildAllRichTextEditors', () => {
       expect(buildAllRichTextEditors('.test')).toStrictEqual([]);
    });
    it('should build editors when selector exists', () => {
-      let input = document.createElement('input');
-      input.type = 'text';
-      input.classList.add('rte');
-      document.body.append(input);
+      createTestInputElement();
 
       expect(buildAllRichTextEditors('.rte')).toHaveLength(1);
    });
 });
+
+/**
+ * @returns {HTMLInputElement}
+ */
+function createTestInputElement(): HTMLInputElement
+{
+    let el = document.createElement('input');
+    el.type = 'text';
+    el.id = 'test';
+    el.classList.add('rte');
+    document.body.append(el);
+
+    return el;
+}
+
+/**
+ * @returns {void}
+ */
+function clearDOM(): void
+{
+    document.body.innerHTML = '';
+}
