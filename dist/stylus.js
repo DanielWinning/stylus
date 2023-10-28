@@ -134,9 +134,19 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexpo
 /*!************************!*\
   !*** ./src/Toolbar.ts ***!
   \************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Toolbar = void 0;\nvar ToolbarButton_1 = __webpack_require__(/*! ./ToolbarButton */ \"./src/ToolbarButton.ts\");\nvar Toolbar = /** @class */ (function () {\n    function Toolbar() {\n        this.element = document.createElement('div');\n        this.element.classList.add('stylus-toolbar');\n        this.createButtons();\n    }\n    /**\n     * @returns {HTMLDivElement}\n     */\n    Toolbar.prototype.getElement = function () {\n        return this.element;\n    };\n    /**\n     * Set up method for creating interactive toolbar buttons.\n     *\n     * @private\n     */\n    Toolbar.prototype.createButtons = function () {\n        var buttons = [];\n        buttons.push(new ToolbarButton_1.ToolbarButton({\n            name: 'bold',\n        }), new ToolbarButton_1.ToolbarButton({\n            name: 'italic',\n        }), new ToolbarButton_1.ToolbarButton({\n            name: 'underline',\n        }));\n        this.buttons = buttons;\n    };\n    return Toolbar;\n}());\nexports.Toolbar = Toolbar;\n\n\n//# sourceURL=webpack://@dannyxcii/stylus/./src/Toolbar.ts?");
+
+/***/ }),
+
+/***/ "./src/ToolbarButton.ts":
+/*!******************************!*\
+  !*** ./src/ToolbarButton.ts ***!
+  \******************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ToolbarButton = exports.Toolbar = void 0;\nvar Toolbar = /** @class */ (function () {\n    function Toolbar() {\n        this.element = document.createElement('div');\n        this.element.classList.add('stylus-toolbar');\n        this.createButtons();\n    }\n    /**\n     * @returns {HTMLDivElement}\n     */\n    Toolbar.prototype.getElement = function () {\n        return this.element;\n    };\n    /**\n     * Set up method for creating interactive toolbar buttons.\n     *\n     * @private\n     */\n    Toolbar.prototype.createButtons = function () {\n        var buttons = [];\n        buttons.push(new ToolbarButton({\n            name: 'bold',\n        }), new ToolbarButton({\n            name: 'italic',\n        }), new ToolbarButton({\n            name: 'underline',\n        }));\n        this.buttons = buttons;\n    };\n    return Toolbar;\n}());\nexports.Toolbar = Toolbar;\nvar ToolbarButton = /** @class */ (function () {\n    function ToolbarButton(options) {\n        this.name = options.name;\n    }\n    return ToolbarButton;\n}());\nexports.ToolbarButton = ToolbarButton;\n\n\n//# sourceURL=webpack://@dannyxcii/stylus/./src/Toolbar.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ToolbarButton = void 0;\nvar ToolbarButton = /** @class */ (function () {\n    function ToolbarButton(options) {\n        this.name = options.name;\n    }\n    return ToolbarButton;\n}());\nexports.ToolbarButton = ToolbarButton;\n\n\n//# sourceURL=webpack://@dannyxcii/stylus/./src/ToolbarButton.ts?");
 
 /***/ }),
 

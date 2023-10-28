@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { Toolbar, ToolbarButton } from "../src/Toolbar";
+import { Toolbar } from '../src/Toolbar';
 
 afterEach(() => {
     document.body.innerHTML = '';
@@ -16,11 +16,5 @@ describe('Class: Toolbar', () => {
 
        expect(tb.getElement()).toBeInstanceOf(HTMLDivElement);
        expect(tb.getElement().classList.contains('stylus-toolbar')).toBeTruthy();
-   });
-});
-
-describe('Class: ToolbarButton', () => {
-   it('should create an instance of ToolbarButton', () => {
-       expect(new ToolbarButton({name: 'test'})).toBeInstanceOf(ToolbarButton);
    });
 });

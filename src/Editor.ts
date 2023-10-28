@@ -1,7 +1,7 @@
 import IEditorOptions from './Interface/IEditorOptions';
 import { StyleOptions } from './Enum/StyleOptions';
 import { Toolbar } from './Toolbar';
-import StyleUtils from "./Utils/StyleUtils";
+import StyleUtils from './Utils/StyleUtils';
 
 class Editor
 {

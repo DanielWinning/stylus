@@ -1,4 +1,4 @@
-import { IToolbarButtonOptions } from './Interface/IToolbarButtonOptions';
+import { ToolbarButton } from './ToolbarButton';
 
 class Toolbar
 {
@@ -46,13 +46,4 @@ class Toolbar
     }
 }
 
-class ToolbarButton
-{
-    private name: string;
-
-    constructor(options: IToolbarButtonOptions) {
-        this.name = options.name;
-    }
-}
-
-export { Toolbar, ToolbarButton };
+export { Toolbar };
