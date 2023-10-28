@@ -43,6 +43,21 @@ describe('Class: Editor', () => {
             new Editor({targetElement: '.rte'});
         }).toThrowError('Rich Text Editor must be instantiated on a text input element.');
     });
+
+    it('updates input when contents changed', () => {
+        let el = document.createElement('input');
+        el.type = 'text';
+        document.body.append(el);
+
+        let editor = new Editor({targetElement: el});
+
+        expect(editor.getInputValue()).toBe('');
+
+        editor.getTextEditor().innerHTML = 'Test string';
+        editor.getTextEditor().dispatchEvent(new Event('change'));
+
+        expect(editor.getInputValue()).toBe('Test string');
+    });
 });
 
 describe('Helper: buildAllRichTextEditors', () => {

@@ -4,9 +4,10 @@ import { Toolbar } from './Toolbar';
 
 class Editor
 {
-    inputElement: HTMLInputElement;
-    colourScheme: string;
-    toolbar: Toolbar;
+    private inputElement: HTMLInputElement;
+    private colourScheme: string;
+    private toolbar: Toolbar;
+    private editor: HTMLDivElement;
 
     /**
      * @param {IEditorOptions} options
@@ -25,6 +26,22 @@ class Editor
         }
 
         this.buildEditorUI();
+    }
+
+    /**
+     * @returns {string}
+     */
+    public getInputValue(): string
+    {
+        return this.inputElement.value;
+    }
+
+    /**
+     * @returns {HTMLDivElement}
+     */
+    public getTextEditor(): HTMLDivElement
+    {
+        return this.editor;
     }
 
     /**
@@ -57,18 +74,21 @@ class Editor
     private buildEditorUI(): void
     {
         this.inputElement.style.display = 'none';
-
-        let stylusContainer = document.createElement('div');
-        stylusContainer.classList.add('stylus', this.colourScheme);
-
         this.toolbar = new Toolbar();
 
-        let editor = document.createElement('div');
-        editor.classList.add('stylus-editor');
-        editor.setAttribute('contenteditable', '');
+        let stylusContainer = document.createElement('div');
+        this.editor = document.createElement('div');
+
+        stylusContainer.classList.add('stylus', this.colourScheme);
+
+        this.editor.classList.add('stylus-editor');
+        this.editor.setAttribute('contenteditable', '');
+        this.editor.addEventListener('change', () => {
+            this.inputElement.value = this.editor.innerHTML;
+        });
 
         stylusContainer.append(this.toolbar.getElement());
-        stylusContainer.append(editor);
+        stylusContainer.append(this.editor);
 
         this.inputElement.parentNode.insertBefore(stylusContainer, this.inputElement.nextSibling);
     }
