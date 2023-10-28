@@ -7,14 +7,18 @@ const DOM: Array<any> = [
     HTMLInputElement,
 ];
 
+afterEach(() => {
+    document.body.innerHTML = '';
+});
+
 describe('Class: Editor', () => {
     it('should create an instance of Editor', () => {
         let input: HTMLInputElement = document.createElement('input');
-        input.classList.add('rte-1');
+        input.classList.add('rte');
         document.body.append(input);
 
         const editor = new Editor({
-            targetElement: '.rte-1'
+            targetElement: '.rte'
         });
         expect(editor).toBeInstanceOf(Editor);
     });
@@ -37,11 +41,11 @@ describe('Class: Editor', () => {
     it('throws an error when targetElement is not an HTMLInputElement', () => {
         expect(() => {
             let el = document.createElement('div');
-            el.classList.add('rte-2');
+            el.classList.add('rte');
             document.body.append(el);
 
-           new Editor({targetElement: '.rte-2'});
-       }).toThrowError('Rich Text Editor must be instantiated on a text input element.');
+            new Editor({targetElement: '.rte'});
+        }).toThrowError('Rich Text Editor must be instantiated on a text input element.');
     });
 });
 
@@ -52,9 +56,9 @@ describe('Helper: buildAllRichTextEditors', () => {
    it('should build editors when selector exists', () => {
       let input = document.createElement('input');
       input.type = 'text';
-      input.classList.add('rte-3');
+      input.classList.add('rte');
       document.body.append(input);
 
-      expect(buildAllRichTextEditors('.rte-3')).toHaveLength(1);
+      expect(buildAllRichTextEditors('.rte')).toHaveLength(1);
    });
 });
