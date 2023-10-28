@@ -1,8 +1,6 @@
 @import 'themes/default';
 
 .stylus {
-  width: 100%;
-
   &.stylus-default {
     @include stylusDefault;
   }
