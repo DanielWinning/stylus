@@ -1,5 +1,6 @@
 export interface IToolbarButtonOptions
 {
     name: string;
-    displayName: string;
+    title: string;
+    iconClasses?: Array<string>;
 }
