@@ -33,12 +33,15 @@ class Toolbar
         buttons.push(
             new ToolbarButton({
                 name: 'bold',
+                displayName: 'B',
             }),
             new ToolbarButton({
                 name: 'italic',
+                displayName: 'I',
             }),
             new ToolbarButton({
                 name: 'underline',
+                displayName: 'U',
             }),
         );
 

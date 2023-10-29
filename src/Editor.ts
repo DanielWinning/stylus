@@ -2,6 +2,7 @@ import IEditorOptions from './Interface/IEditorOptions';
 import { StyleOptions } from './Enum/StyleOptions';
 import { Toolbar } from './Toolbar';
 import StyleUtils from './Utils/StyleUtils';
+import { Messages } from './Enum/Messages';
 
 class Editor
 {
@@ -19,11 +20,11 @@ class Editor
         this.setEditorStyles(options.colourScheme ?? StyleOptions.DEFAULT);
 
         if (!this.inputElement) {
-            throw new Error('Editor could not be instantiated, no corresponding DOM Element found.');
+            throw new Error(Messages.ERROR_NO_DOM_ELEMENT);
         }
 
         if (this.inputElement.type !== 'text') {
-            throw new Error('Rich Text Editor must be instantiated on a text input element.');
+            throw new Error(Messages.ERROR_NOT_ON_TEXT_INPUT);
         }
 
         this.buildEditorUI();

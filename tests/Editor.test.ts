@@ -3,6 +3,7 @@
  */
 import { Editor, buildAllRichTextEditors } from '../src/Editor';
 import { StyleOptions } from '../src/Enum/StyleOptions';
+import {Messages} from "../src/Enum/Messages";
 
 afterEach(() => {
     document.body.innerHTML = '';
@@ -28,7 +29,7 @@ describe('Class: Editor', () => {
     it('throws an error when targetElement is not found by selector', () => {
         expect(() => {
             new Editor({targetElement: '.rte'});
-        }).toThrowError('Editor could not be instantiated, no corresponding DOM Element found.');
+        }).toThrowError(Messages.ERROR_NO_DOM_ELEMENT);
     });
 
     it('throws an error when targetElement is not an HTMLInputElement', () => {
@@ -38,7 +39,7 @@ describe('Class: Editor', () => {
             document.body.append(el);
 
             new Editor({targetElement: '.rte'});
-        }).toThrowError('Rich Text Editor must be instantiated on a text input element.');
+        }).toThrowError(Messages.ERROR_NOT_ON_TEXT_INPUT);
     });
 
     it('updates input when contents changed', () => {
