@@ -46,6 +46,10 @@ class Toolbar
         );
 
         this.buttons = buttons;
+
+        this.buttons.forEach((button: ToolbarButton) => {
+           this.element.append(button.getButton());
+        });
     }
 }
 

@@ -8,7 +8,7 @@ class ToolbarButton
     constructor(options: IToolbarButtonOptions) {
         this.name = options.name;
 
-        this.createButton(options.displayName);
+        this.createButton(options.name, options.displayName);
     }
 
     /**
@@ -22,11 +22,12 @@ class ToolbarButton
     /**
      * @private
      */
-    private createButton(displayName: string): void
+    private createButton(value: string, displayName: string): void
     {
         this.element = document.createElement('button');
         this.element.type = 'button';
-        this.element.value = displayName;
+        this.element.value = value;
+        this.element.innerHTML = displayName;
     }
 }
 
