@@ -35,24 +35,24 @@ class Toolbar
                 name: 'bold',
                 title: 'Bold',
                 iconClasses: [
-                    'fa-solid',
-                    'fa-bold',
+                    'stylus-icon',
+                    'stylus-bold',
                 ]
             }),
             new ToolbarButton({
                 name: 'italic',
                 title: 'Italic',
                 iconClasses: [
-                    'fa-solid',
-                    'fa-italic',
+                    'stylus-icon',
+                    'stylus-italic',
                 ]
             }),
             new ToolbarButton({
                 name: 'underline',
                 title: 'Underline',
                 iconClasses: [
-                    'fa-solid',
-                    'fa-underline',
+                    'stylus-icon',
+                    'stylus-underline',
                 ]
             }),
         );

@@ -3,11 +3,45 @@
   border: 1px solid #ebebeb;
   border-radius: .25rem;
 
+  .stylus-icon {
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+  }
   .stylus-toolbar {
     background-color: #e3e3e3;
     min-height: 20px;
     width: 100%;
     overflow: hidden;
+
+    .stylus-button {
+      padding: 10px 20px;
+      background-color: #d1d1d1;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-right: .15rem;
+
+      &:hover {
+        background-color: #7e7d7d;
+        i {
+          filter: invert(90%);
+        }
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+      i {
+        filter: invert(30%);
+      }
+    }
   }
   .stylus-editor {
     padding: .75rem;

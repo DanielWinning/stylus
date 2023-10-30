@@ -41,15 +41,15 @@ describe('Class: ToolbarButton', () => {
         }).toThrowError(Messages.ERROR_NO_TOOLBAR_BUTTON_HTML_PROVIDED);
     });
 
-    it('should create FontAwesome icon when provided classes', () => {
+    it('should create icon when provided classes', () => {
         let boldButton = new ToolbarButton({
             name: 'bold',
             title: 'Bold',
             iconClasses: [
-                'fa-solid',
-                'fa-bold',
+                'stylus-icon',
+                'stylus-bold',
             ]
         });
-        expect(boldButton.getButton().innerHTML).toBe('<i class="fa-solid fa-bold"></i>');
+        expect(boldButton.getButton().innerHTML).toBe('<i class="stylus-icon stylus-bold"></i>');
     });
 });

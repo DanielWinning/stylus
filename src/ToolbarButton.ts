@@ -1,5 +1,5 @@
 import { IToolbarButtonOptions } from './Interface/IToolbarButtonOptions';
-import {Messages} from "./Enum/Messages";
+import { Messages } from './Enum/Messages';
 
 class ToolbarButton
 {
@@ -30,13 +30,13 @@ class ToolbarButton
         this.element = document.createElement('button');
         this.element.type = 'button';
         this.element.value = options.name;
+        this.element.classList.add('stylus-button');
+        this.element.title = options.title;
 
         if (options.iconClasses && options.iconClasses.length) {
             let icon = document.createElement('i');
 
-            options.iconClasses.forEach((iconClass: string) => {
-                icon.classList.add(iconClass);
-            });
+            icon.classList.add(...options.iconClasses);
 
             this.element.append(icon);
 

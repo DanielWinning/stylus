@@ -1,7 +1,9 @@
+@import 'icons';
 @import 'themes/default';
 
 .stylus {
   &.stylus-default {
+    @include stylusIcons;
     @include stylusDefault;
   }
 }

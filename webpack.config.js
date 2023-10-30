@@ -12,7 +12,15 @@ module.exports = {
             },
             {
                 test: /\.(scss|sass)$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/i,
+                type: 'asset/inline',
             },
         ]
     },
@@ -25,6 +33,13 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
-        new CopyWebpackPlugin({patterns: [{from: 'src/index.d.ts', to: 'stylus.d.ts'}]}),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'src/index.d.ts',
+                    to: 'stylus.d.ts'
+                }
+            ]
+        }),
     ],
 }

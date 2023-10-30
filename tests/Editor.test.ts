@@ -3,7 +3,7 @@
  */
 import { Editor, buildAllRichTextEditors } from '../src/Editor';
 import { StyleOptions } from '../src/Enum/StyleOptions';
-import {Messages} from "../src/Enum/Messages";
+import { Messages } from '../src/Enum/Messages';
 
 afterEach(() => {
     document.body.innerHTML = '';
